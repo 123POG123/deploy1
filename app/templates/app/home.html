@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="container">
+    <p1>{{ new_visit }}</p1>
+        {% for foo in post %}
+            <h2><a href="{% url 'about' foo.pk %}">{{ foo.title }}</a></h2>
+        {% endfor %}
+    </div>
+    <div class="container mt-4">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-outline-success">Save</button>
+        </form>
+    <form action="" method="post">
+            {% csrf_token %}
+            {{ authorForm.as_p }}
+            <button type="submit" class="btn btn-outline-success">Save</button>
+        </form>
+    </div>
+
+
+{% endblock %}
